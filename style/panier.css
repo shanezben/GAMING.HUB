@@ -710,10 +710,7 @@ body {
 @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
 
-/* ============================================
-   ZOOM DESKTOP → TABLETTE / MOBILE
-   Affichage identique au desktop sur tous appareils
-   ============================================ */
+
 @media screen and (max-width: 1024px) {
     body { transform: scale(0.72); transform-origin: top left; margin-left: 0; }
     html { height: calc(100% * 0.72); }

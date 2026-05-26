@@ -9,19 +9,19 @@
 
 html, body {
     width: 100%;
-    height: 100vh;       /* ✅ FIXÉ : occupe exactement l'écran */
-    height: 100dvh;      /* ✅ FIXÉ : s'adapte à la barre d'adresse sur mobile */
-    overflow: hidden;    /* ✅ FIXÉ : bloque tout scroll */
+    height: 100vh;      
+    height: 100dvh;     
+    overflow: hidden;    
 }
 
 body {
     font-family: 'Jaini Purva', cursive;
     background: #0a0a0a;
     color: #1a1a1a;
-    overscroll-behavior: none; /* ✅ Empêche l'effet élastique iOS/Android */
+    overscroll-behavior: none; 
 }
 
-/* FOND — fixed, z-index négatif, jamais transformé */
+
 .body-background {
     position: fixed;
     top: 0;
@@ -34,7 +34,7 @@ body {
     pointer-events: none;
 }
 
-/* ===== LOGO — fixed, z-index élevé ===== */
+
 .logo-circle {
     position: fixed;
     top: 20px;
@@ -59,7 +59,7 @@ body {
     line-height: 1.2;
 }
 
-/* ===== NAVBAR — fixed ===== */
+/* ===== NAVBAR ===== */
 .navbar {
     position: fixed;
     top: 20px;
@@ -96,7 +96,7 @@ body {
 
 .nav-links a:hover { color: #ff6b35; }
 
-/* ===== RÉSEAUX SOCIAUX — fixed en bas, z-index max ===== */
+
 .social-media {
     position: fixed;
     bottom: 0;
@@ -135,18 +135,18 @@ body {
 .social-media a:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
 .social-media a:hover i { color: #ff6b35; }
 
-/* ===== CONTAINER — verrouillé en hauteur, centré parfaitement ===== */
+
 .container {
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 100vh;       /* ✅ FIXÉ : remplace min-height */
-    height: 100dvh;      /* ✅ FIXÉ : compatible mobile */
+    height: 100vh;     
+    height: 100dvh;      
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 130px 60px 100px;
-    overflow: hidden;    /* ✅ Coupe tout débordement accidentel */
+    overflow: hidden;    
 }
 
 .content-wrapper {
@@ -317,16 +317,14 @@ body {
     pointer-events: none;
 }
 
-/* ===== MESSAGES VALIDATION ===== */
+
 .form-message { padding: 12px 15px; border-radius: 10px; font-size: 14px; margin-bottom: 15px; display: none; animation: slideDown 0.3s ease; }
 @keyframes slideDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
 .form-message.error   { display:block; background:rgba(255,87,87,0.2);  border:1px solid #ff5757; color:#fff; }
 .form-message.success { display:block; background:rgba(72,187,120,0.2); border:1px solid #48bb78; color:#fff; }
 
 
-/* ============================================
-   TABLETTE (≤ 1024px)
-   ============================================ */
+
 @media screen and (max-width: 1024px) {
     .container { padding: 100px 20px 100px; }
     .content-wrapper { gap: 30px; }
@@ -339,11 +337,8 @@ body {
 }
 
 
-/* ============================================
-   TÉLÉPHONE (≤ 768px)
-   ============================================ */
 @media screen and (max-width: 768px) {
-    html, body { height: 100vh; height: 100dvh; overflow: hidden; } /* ✅ FIXÉ : remplace height:auto/overflow-y:auto */
+    html, body { height: 100vh; height: 100dvh; overflow: hidden; } 
 
     .logo-circle { width: 65px; height: 42px; top: 8px; left: 8px; }
     .logo-circle span { font-size: 9px; }
@@ -377,9 +372,7 @@ body {
 }
 
 
-/* ============================================
-   PETIT TÉLÉPHONE (≤ 480px)
-   ============================================ */
+
 @media screen and (max-width: 480px) {
     .container { padding: 70px 4px 90px; }
     .nav-links a { font-size: 11px; }
