@@ -1,7 +1,4 @@
-
-
 // 1. DONNÉES PRODUITS (Tableau JavaScript)
-
 const products = [
     {
         id: 1,
@@ -149,9 +146,7 @@ const products = [
     }
 ];
 
-
 // 2. UTILISATEURS SIMULÉS (Authentification)
-
 const defaultUsers = [
     {
         id: 1,
@@ -161,7 +156,6 @@ const defaultUsers = [
         registered: "2024-01-15"
     }
 ];
-
 
 // 3. EXPRESSIONS RÉGULIÈRES 
 const RegexPatterns = {
@@ -173,20 +167,12 @@ const RegexPatterns = {
     city: /^[a-zA-ZàâäéèêëïîôùûüÿçÀÂÄÉÈÊËÏÎÔÙÛÜŸÇ\s'-]{2,100}$/
 };
 
-
 // 4. FONCTIONS D'AFFICHAGE DYNAMIQUE
-
-
-
 function renderFeaturedGames() {
     const container = document.getElementById('games-grid') || document.querySelector('.games-grid');
     if (!container) return;
-    
     const featured = products.filter(p => p.featured);
-    
-    
     if (container.children.length > 0 && !container.dataset.dynamic) return;
-    
     container.innerHTML = featured.map((product, index) => {
         const isReverse = index % 2 === 1 ? 'reverse' : '';
         return `
@@ -203,19 +189,14 @@ function renderFeaturedGames() {
             </article>
         `;
     }).join('');
-    
     container.dataset.dynamic = 'true';
 }
-
 
 function renderPromoGames() {
     const container = document.querySelector('.promo-grid');
     if (!container) return;
-    
     const promo = products.filter(p => p.promo);
-    
     if (container.children.length > 0 && !container.dataset.dynamic) return;
-    
     container.innerHTML = promo.map(product => {
         const discountedPrice = (product.price * (1 - product.discount/100)).toFixed(2);
         return `
@@ -234,22 +215,18 @@ function renderPromoGames() {
             </div>
         `;
     }).join('');
-    
     container.dataset.dynamic = 'true';
 }
-
 
 function renderFAQ() {
     const container = document.querySelector('.faq-container');
     if (!container || container.children.length > 0) return;
-    
     const faqData = [
         { q: "Qui sommes-nous ?", a: "Gaming.HUB est une plateforme de référence dédiée aux passionnés de jeux vidéo. Fondée en 2020, notre équipe d'experts sélectionne pour vous les meilleurs jeux et accessoires gaming." },
         { q: "Que proposons-nous exactement ?", a: "Nous proposons une large gamme de produits gaming : jeux vidéo pour toutes les plateformes (PC, PlayStation, Xbox, Nintendo), consoles, accessoires et produits dérivés." },
         { q: "Pourquoi choisir notre site ?", a: "Prix compétitifs, livraison rapide, service client 6j/7, conseils d'experts, programme de fidélité et garantie satisfait ou remboursé de 30 jours." },
         { q: "Comment passer une commande ?", a: "Créez un compte, ajoutez les produits au panier, validez votre commande, choisissez votre mode de paiement et confirmez." }
     ];
-    
     container.innerHTML = faqData.map(item => `
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
@@ -263,14 +240,9 @@ function renderFAQ() {
     `).join('');
 }
 
-
 // 5. FILTRAGE ET RECHERCHE (Côté client)
-
-
-// Filtrer par catégorie
 function filterByCategory(category) {
     const allCards = document.querySelectorAll('.promo-card, .game-card');
-    
     allCards.forEach(card => {
         const cardCategory = card.dataset.category;
         if (category === 'all' || cardCategory === category) {
@@ -281,19 +253,15 @@ function filterByCategory(category) {
     });
 }
 
-// Recherche en temps réel
 function setupSearch() {
     const searchInput = document.querySelector('.search-bar input');
     if (!searchInput) return;
-    
     searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
         const allCards = document.querySelectorAll('.promo-card, .game-card');
-        
         allCards.forEach(card => {
             const title = card.querySelector('.game-title')?.textContent.toLowerCase() || '';
             const description = card.querySelector('.game-description')?.textContent.toLowerCase() || '';
-            
             if (title.includes(query) || description.includes(query)) {
                 card.style.display = '';
             } else {
@@ -303,13 +271,9 @@ function setupSearch() {
     });
 }
 
-
 // 6. PANIER AVEC LOCALSTORAGE
-
-
 function addToCart(productId) {
     let cart = JSON.parse(localStorage.getItem('gaminghub_cart')) || [];
-    
     if (!cart.includes(productId)) {
         cart.push(productId);
         localStorage.setItem('gaminghub_cart', JSON.stringify(cart));
@@ -343,22 +307,15 @@ function getCartProducts() {
 
 function calculateCartTotal() {
     return getCartProducts().reduce((total, product) => {
-        const price = product.discount > 0 
-            ? product.price * (1 - product.discount/100) 
-            : product.price;
+        const price = product.discount > 0 ? product.price * (1 - product.discount/100) : product.price;
         return total + price;
     }, 0);
 }
 
-//
 // 7. AUTHENTIFICATION SIMULÉE
-// 
-
 function loadUsers() {
     const stored = localStorage.getItem('gaminghub_users');
-    if (stored) {
-        return JSON.parse(stored);
-    }
+    if (stored) return JSON.parse(stored);
     localStorage.setItem('gaminghub_users', JSON.stringify(defaultUsers));
     return [...defaultUsers];
 }
@@ -369,19 +326,10 @@ function saveUsers(users) {
 
 function registerUser(email, password, name) {
     const users = loadUsers();
-    
     if (users.find(u => u.email === email)) {
         return { success: false, message: "Cet email est déjà utilisé" };
     }
-    
-    const newUser = {
-        id: users.length + 1,
-        email,
-        password,
-        name,
-        registered: new Date().toISOString()
-    };
-    
+    const newUser = { id: users.length + 1, email, password, name, registered: new Date().toISOString() };
     users.push(newUser);
     saveUsers(users);
     return { success: true, message: "Compte créé avec succès!" };
@@ -390,14 +338,8 @@ function registerUser(email, password, name) {
 function loginUser(email, password) {
     const users = loadUsers();
     const user = users.find(u => u.email === email && u.password === password);
-    
     if (user) {
-        const session = {
-            userId: user.id,
-            email: user.email,
-            name: user.name,
-            loginTime: new Date().toISOString()
-        };
+        const session = { userId: user.id, email: user.email, name: user.name, loginTime: new Date().toISOString() };
         localStorage.setItem('gaminghub_session', JSON.stringify(session));
         return { success: true, user };
     }
@@ -418,9 +360,7 @@ function getCurrentUser() {
 function updateAuthUI() {
     const authButtons = document.querySelector('.auth-buttons');
     if (!authButtons) return;
-    
     const user = getCurrentUser();
-    
     if (user) {
         authButtons.innerHTML = `
             <i class="fas fa-shopping-cart cart-icon"></i>
@@ -432,41 +372,21 @@ function updateAuthUI() {
     }
 }
 
-//
 // 8. VALIDATION FORMULAIRES (RegEx)
-// 
-
-function validateEmail(email) {
-    return RegexPatterns.email.test(email);
-}
-
-function validatePhone(phone) {
-    return RegexPatterns.phone.test(phone.replace(/\s/g, ''));
-}
-
-function validatePassword(password) {
-    return RegexPatterns.password.test(password);
-}
-
-function validateName(name) {
-    return RegexPatterns.name.test(name);
-}
+function validateEmail(email) { return RegexPatterns.email.test(email); }
+function validatePhone(phone) { return RegexPatterns.phone.test(phone.replace(/\s/g, '')); }
+function validatePassword(password) { return RegexPatterns.password.test(password); }
+function validateName(name) { return RegexPatterns.name.test(name); }
 
 function showError(input, message) {
     const formGroup = input.closest('.form-group');
-    if (!formGroup) {
-        input.style.borderColor = '#ff4444';
-        return;
-    }
-    
+    if (!formGroup) { input.style.borderColor = '#ff4444'; return; }
     input.classList.add('error');
     let errorSpan = formGroup.querySelector('.error-message');
     if (!errorSpan) {
         errorSpan = document.createElement('span');
         errorSpan.className = 'error-message';
-        errorSpan.style.color = '#ff4444';
-        errorSpan.style.fontSize = '0.85rem';
-        errorSpan.style.display = 'block';
+        errorSpan.style.cssText = 'color:#ff4444;font-size:0.85rem;display:block;';
         formGroup.appendChild(errorSpan);
     }
     errorSpan.textContent = message;
@@ -480,12 +400,10 @@ function clearError(input) {
 }
 
 function setupFormValidation() {
-    // Formulaire d'inscription
     const inscriptionForm = document.getElementById('inscription-form');
     if (inscriptionForm) {
         inscriptionForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
             const formData = {
                 nom: document.getElementById('nom')?.value.trim(),
                 prenom: document.getElementById('prenom')?.value.trim(),
@@ -494,135 +412,123 @@ function setupFormValidation() {
                 confirmPassword: document.getElementById('confirm-password')?.value,
                 telephone: document.getElementById('telephone')?.value.trim()
             };
-            
-            // Validation
-            if (!validateName(formData.nom)) {
-                showError(document.getElementById('nom'), 'Nom invalide (2-50 lettres)');
-                return;
-            }
-            if (!validateName(formData.prenom)) {
-                showError(document.getElementById('prenom'), 'Prénom invalide');
-                return;
-            }
-            if (!validateEmail(formData.email)) {
-                showError(document.getElementById('email'), 'Email invalide');
-                return;
-            }
-            if (!validatePassword(formData.password)) {
-                showError(document.getElementById('password'), 'Mot de passe trop faible (8+ caractères, maj/min/chiffre/spécial)');
-                return;
-            }
-            if (formData.password !== formData.confirmPassword) {
-                showError(document.getElementById('confirm-password'), 'Les mots de passe ne correspondent pas');
-                return;
-            }
-            
-            // Inscription
+            if (!validateName(formData.nom)) { showError(document.getElementById('nom'), 'Nom invalide'); return; }
+            if (!validateName(formData.prenom)) { showError(document.getElementById('prenom'), 'Prénom invalide'); return; }
+            if (!validateEmail(formData.email)) { showError(document.getElementById('email'), 'Email invalide'); return; }
+            if (!validatePassword(formData.password)) { showError(document.getElementById('password'), 'Mot de passe trop faible'); return; }
+            if (formData.password !== formData.confirmPassword) { showError(document.getElementById('confirm-password'), 'Mots de passe différents'); return; }
             const result = registerUser(formData.email, formData.password, `${formData.prenom} ${formData.nom}`);
-            if (result.success) {
-                alert('✅ Compte créé! Connectez-vous maintenant.');
-                window.location.href = 'connexion.html';
-            } else {
-                showError(document.getElementById('email'), result.message);
-            }
+            if (result.success) { alert('✅ Compte créé!'); window.location.href = 'connexion.html'; }
+            else { showError(document.getElementById('email'), result.message); }
         });
     }
-    
-    // Formulaire de connexion
     const connexionForm = document.getElementById('connexion-form');
     if (connexionForm) {
         connexionForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
             const email = document.getElementById('email')?.value.trim();
             const password = document.getElementById('password')?.value;
-            
-            if (!validateEmail(email)) {
-                showError(document.getElementById('email'), 'Email invalide');
-                return;
-            }
-            
+            if (!validateEmail(email)) { showError(document.getElementById('email'), 'Email invalide'); return; }
             const result = loginUser(email, password);
-            if (result.success) {
-                alert(`✅ Bienvenue, ${result.user.name}!`);
-                updateAuthUI();
-                window.location.href = 'index.html';
-            } else {
-                showError(document.getElementById('email'), result.message);
-            }
+            if (result.success) { alert(`✅ Bienvenue ${result.user.name}!`); updateAuthUI(); window.location.href = 'index.html'; }
+            else { showError(document.getElementById('email'), result.message); }
         });
     }
-    
-    // Clear errors on input
     document.querySelectorAll('.form-input').forEach(input => {
         input.addEventListener('input', () => clearError(input));
         input.addEventListener('blur', () => { if(input.value) clearError(input); });
     });
 }
 
-
 // 9. UTILITAIRES
-
-
 function showToast(message) {
-    
     const toast = document.createElement('div');
-    toast.style.cssText = `
-        position: fixed; bottom: 30px; right: 30px;
-        background: linear-gradient(135deg, #4CAF50, #45a049);
-        color: white; padding: 15px 25px; border-radius: 15px;
-        font-family: 'Jaini Purva', cursive; z-index: 9999;
-        box-shadow: 0 5px 20px rgba(76,175,80,0.4);
-        animation: slideIn 0.3s ease;
-    `;
+    toast.style.cssText = `position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,#4CAF50,#45a049);color:white;padding:15px 25px;border-radius:15px;font-family:'Jaini Purva',cursive;z-index:9999;box-shadow:0 5px 20px rgba(76,175,80,0.4);animation:slideIn 0.3s ease;`;
     toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
     document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => toast.remove(), 300);
-    }, 2500);
+    setTimeout(() => { toast.style.animation = 'slideOut 0.3s ease'; setTimeout(() => toast.remove(), 300); }, 2500);
 }
-
 
 if (!document.getElementById('toast-styles')) {
     const style = document.createElement('style');
     style.id = 'toast-styles';
-    style.textContent = `
-        @keyframes slideIn { from { transform: translateX(150%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(150%); opacity: 0; } }
-    `;
+    style.textContent = `@keyframes slideIn{from{transform:translateX(150%);opacity:0}to{transform:translateX(0);opacity:1}}@keyframes slideOut{from{transform:translateX(0);opacity:1}to{transform:translateX(150%);opacity:0}}`;
     document.head.appendChild(style);
 }
 
-// FAQ Toggle
 function toggleFaq(element) {
     const faqItem = element.parentElement;
     const isActive = faqItem.classList.contains('active');
-    
-    document.querySelectorAll('.faq-item').forEach(item => {
-        item.classList.remove('active');
-    });
-    
-    if (!isActive) {
-        faqItem.classList.add('active');
-    }
+    document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+    if (!isActive) faqItem.classList.add('active');
 }
 
-// Newsletter
 function handleNewsletterSubmit(event) {
     event.preventDefault();
     const email = document.querySelector('.newsletter-input')?.value;
-    if (email && validateEmail(email)) {
-        showToast('✅ Inscrit à la newsletter!');
-        event.target.reset();
+    if (email && validateEmail(email)) { showToast('✅ Inscrit à la newsletter!'); event.target.reset(); }
+}
+
+// ═══════════════════════════════════════════
+//  GESTION DU MENU MOBILE (AJOUTÉ)
+// ═══════════════════════════════════════════
+function setupMobileMenu() {
+    const menuToggle = document.getElementById('mob-menu-toggle');
+    const menuClose = document.getElementById('mob-menu-close');
+    const menuDrawer = document.getElementById('mob-menu-drawer');
+    const menuOverlay = document.getElementById('mob-menu-overlay');
+    const searchToggle = document.getElementById('mob-search-toggle');
+    const searchBar = document.getElementById('mob-search-bar');
+
+    function openMenu() {
+        menuDrawer?.classList.add('open');
+        menuOverlay?.classList.add('open');
+        document.body.style.overflow = 'hidden';
     }
+
+    function closeMenu() {
+        menuDrawer?.classList.remove('open');
+        menuOverlay?.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    menuToggle?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    menuOverlay?.addEventListener('click', closeMenu);
+
+    searchToggle?.addEventListener('click', () => {
+        searchBar?.classList.toggle('mob-search-visible');
+        if (searchBar?.classList.contains('mob-search-visible')) {
+            document.getElementById('mob-search-input')?.focus();
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (searchBar?.classList.contains('mob-search-visible') && 
+            !searchBar.contains(e.target) && 
+            e.target !== searchToggle) {
+            searchBar.classList.remove('mob-search-visible');
+        }
+    });
+
+    // Gestion du panier mobile (dot rouge)
+    const cart = JSON.parse(localStorage.getItem('gaminghub_cart')) || [];
+    const mobCartDot = document.getElementById('mob-cart-dot');
+    if (mobCartDot && cart.length > 0) mobCartDot.style.display = 'block';
+
+    // Navigation active bottom bar
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.mob-tab-item').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && currentPath.includes(href.split('/').pop())) {
+            link.classList.add('active');
+        }
+    });
 }
 
 // ============================================
 // 10. INITIALISATION
 //
-
 document.addEventListener('DOMContentLoaded', () => {
     // Chargement des données
     loadUsers();
@@ -673,9 +579,44 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
+    // ═══════════════════════════════════════
+    //  Initialisation du mobile
+    // ═══════════════════════════════════════
+    setupMobileMenu();
+});
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { products, addToCart, loginUser, registerUser, validateEmail };
 }
+// Toggle search mobile
+const mobSearch = document.getElementById('mob-search-toggle');
+const mobileSearchBar = document.getElementById('mobileSearchBar');
+if(mobSearch && mobileSearchBar) {
+    mobSearch.addEventListener('click', () => {
+        mobileSearchBar.classList.toggle('mob-search-visible');
+        if(mobileSearchBar.classList.contains('mob-search-visible')) {
+            document.getElementById('searchInputMobile')?.focus();
+        }
+    });
+}
+
+// Toggle menu mobile
+const menuToggle = document.getElementById('mob-menu-toggle');
+const menuClose = document.getElementById('mob-menu-close');
+const drawer = document.getElementById('mobMenuDrawer');
+const overlay = document.getElementById('mobMenuOverlay');
+
+function openMenu() {
+    drawer?.classList.add('open');
+    overlay?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+    drawer?.classList.remove('open');
+    overlay?.classList.remove('open');
+    document.body.style.overflow = '';
+}
+menuToggle?.addEventListener('click', openMenu);
+menuClose?.addEventListener('click', closeMenu);
+overlay?.addEventListener('click', closeMenu);

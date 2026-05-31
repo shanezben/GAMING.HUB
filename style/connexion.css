@@ -20,7 +20,7 @@ body {
     position: relative;
 }
 
-/* FOND PLEIN ÉCRAN (Suppression du border-radius qui coupait l'écran) */
+
 .body-background {
     position: fixed;
     top: 0;
@@ -354,9 +354,7 @@ body {
 .form-group i.validation-icon.invalid { color: #ff5757; }
 
 
-/* ============================================
-   TABLETTE (≤ 1024px)
-   ============================================ */
+
 @media screen and (max-width: 1024px) {
     .container { padding: 100px 20px 100px; }
     .content-wrapper { gap: 30px; }
@@ -369,9 +367,7 @@ body {
 }
 
 
-/* ============================================
-   TÉLÉPHONE (≤ 768px) — IDENTIQUE INSCRIPTION
-   ============================================ */
+
 @media screen and (max-width: 768px) {
     html, body { height: auto; overflow-x: hidden; overflow-y: auto; }
 
@@ -412,9 +408,7 @@ body {
 }
 
 
-/* ============================================
-   PETIT TÉLÉPHONE (≤ 480px)
-   ============================================ */
+
 @media screen and (max-width: 480px) {
     .container { padding: 70px 4px 90px; }
     .nav-links { gap: 8px; }
