@@ -11,7 +11,6 @@
 </head>
 <body>
 
-    <!-- ══ MOBILE ONLY ══ -->
     <div class="mobile-topbar">
         <div class="mob-logo">Gaming.HUB</div>
         <div class="mob-icons">
@@ -50,9 +49,7 @@
         </a>
         <a href="./content/connexion.html" class="mob-tab-item"><i class="fas fa-user"></i><span>Profil</span></a>
     </div>
-    <!-- ══ FIN MOBILE ONLY ══ -->
 
-    <!-- ══ DESKTOP (inchangé) ══ -->
     <div class="logo-circle"><span>GAMING.HUB</span></div>
 
     <header class="header">
@@ -74,17 +71,14 @@
         </nav>
     </header>
 
-    <!-- Hero — structure desktop inchangée, mobile géré par CSS -->
     <section class="hero">
         <div class="hero-background"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content-wrapper">
-            <!-- Desktop : boutons en bas à gauche -->
             <div class="hero-buttons">
                 <a href="#games" class="btn-primary">en savoir plus</a>
                 <a href="./content/jeux.html" class="btn-secondary">Voir les jeux</a>
             </div>
-            <!-- Desktop : texte à droite -->
             <div class="hero-text-content">
                 <h1 class="hero-title">Gaming.HUB</h1>
                 <p class="hero-text">
@@ -97,56 +91,16 @@
         </div>
     </section>
 
-    <!-- Section jeux featured -->
     <div class="container" id="games">
         <header><h1 class="welcome-title">Bienvenue sur Gaming.HUB</h1></header>
-
-        <!-- Cards scroll mobile -->
-        <div class="mob-games-scroll">
-            <div class="mob-game-card" onclick="window.location.href='./content/jeux.html'">
-                <div class="mob-game-img" data-game="rdr2"></div>
-                <div class="mob-game-info">
-                    <div class="mob-game-title">Red Dead II</div>
-                    <div class="mob-game-meta">Action · Aventure</div>
-                    <button class="mob-game-btn">+ Panier</button>
-                </div>
-            </div>
-            <div class="mob-game-card" onclick="window.location.href='./content/jeux.html'">
-                <div class="mob-game-img" data-game="starfield"></div>
-                <div class="mob-game-info">
-                    <div class="mob-game-title">Starfield</div>
-                    <div class="mob-game-meta">RPG · Exploration</div>
-                    <button class="mob-game-btn">+ Panier</button>
-                </div>
-            </div>
-            <div class="mob-game-card" onclick="window.location.href='./content/jeux.html'">
-                <div class="mob-game-img" data-game="cyberpunk"></div>
-                <div class="mob-game-info">
-                    <div class="mob-game-title">Cyberpunk 2077</div>
-                    <div class="mob-game-meta">Action · RPG</div>
-                    <button class="mob-game-btn">+ Panier</button>
-                </div>
-            </div>
-            <div class="mob-game-card" onclick="window.location.href='./content/jeux.html'">
-                <div class="mob-game-img" data-game="cod"></div>
-                <div class="mob-game-info">
-                    <div class="mob-game-title">Call of Duty</div>
-                    <div class="mob-game-meta">FPS · Action</div>
-                    <button class="mob-game-btn">+ Panier</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Cards desktop (inchangées) -->
         <main class="games-grid">
+
+            <!-- RDR2 — structure simplifiée pour mobile -->
             <article class="game-card featured" data-game="rdr2">
-                <div class="game-image" style="background: linear-gradient(135deg, #8B0000, #FF6B35); min-height: 400px;">
-                    <div style="display:flex;align-items:center;justify-content:center;height:100%;color:white;font-size:24px;font-weight:bold;text-align:center;padding:20px;"></div>
-                </div>
-                <div class="game-overlay">
-                    <button class="btn-panier">Ajouter au panier</button>
-                </div>
+                <div class="game-image"></div>
+                <button class="btn-panier">Ajouter au panier</button>
             </article>
+
             <article class="game-card" data-game="starfield">
                 <div class="bg-layer"></div>
                 <div class="game-text-box">
@@ -155,6 +109,7 @@
                 </div>
                 <div class="game-image"></div>
             </article>
+
             <article class="game-card reverse" data-game="cyberpunk">
                 <div class="bg-layer"></div>
                 <div class="game-image"></div>
@@ -163,6 +118,7 @@
                     <p class="game-description">Bienvenue à Night City. Plonge dans l'univers sombre et futuriste de Cyberpunk où la technologie règne et le danger est partout. Entre implants cybernétiques, gangs puissants et missions à haut risque, forge ta légende dans la ville la plus dangereuse du futur.</p>
                 </div>
             </article>
+
             <article class="game-card" data-game="cod">
                 <div class="bg-layer"></div>
                 <div class="game-text-box">
@@ -171,8 +127,8 @@
                 </div>
                 <div class="game-image"></div>
             </article>
-        </main>
 
+        </main>
         <div class="see-more">
             <button class="btn-voir-plus"><a href="./content/jeux.html">Voir plus</a></button>
         </div>
@@ -181,46 +137,14 @@
     <section class="promo-section">
         <h2 class="promo-title">Promo</h2>
         <div class="promo-grid">
-            <div class="promo-card" data-promo="horizon">
-                <div class="discount-badge">-20%</div>
-                <div class="game-cover"></div>
-                <div class="game-info"><h3 class="game-title">Horizon Forbidden West</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">18 février 2022</p></div>
-            </div>
-            <div class="promo-card" data-promo="zelda">
-                <div class="discount-badge">-20%</div>
-                <div class="game-cover"></div>
-                <div class="game-info"><h3 class="game-title">The Legend of Zelda</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">12 mai 2023</p></div>
-            </div>
-            <div class="promo-card" data-promo="re">
-                <div class="discount-badge">-20%</div>
-                <div class="game-cover"></div>
-                <div class="game-info"><h3 class="game-title">Resident Evil Requiem</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">24 mars 2023</p></div>
-            </div>
-            <div class="promo-card" data-promo="gt7">
-                <div class="discount-badge">-20%</div>
-                <div class="game-cover"></div>
-                <div class="game-info"><h3 class="game-title">Gran Turismo 7</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">4 mars 2022</p></div>
-            </div>
-            <div class="promo-card" data-promo="baldurs">
-                <div class="discount-badge">-20%</div>
-                <div class="game-cover"></div>
-                <div class="game-info"><h3 class="game-title">Baldur's Gate</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">3 août 2023</p></div>
-            </div>
-            <div class="promo-card" data-promo="gow">
-                <div class="discount-badge">-20%</div>
-                <div class="game-cover"></div>
-                <div class="game-info"><h3 class="game-title">God Of Wars Ragnarok</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">9 novembre 2022</p></div>
-            </div>
-            <div class="promo-card" data-promo="starfield2">
-                <div class="discount-badge">-20%</div>
-                <div class="game-cover"></div>
-                <div class="game-info"><h3 class="game-title">Starfield</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">6 septembre 2023</p></div>
-            </div>
-            <div class="promo-card" data-promo="forza">
-                <div class="discount-badge">-20%</div>
-                <div class="game-cover"></div>
-                <div class="game-info"><h3 class="game-title">Forza Horizon 5</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">9 novembre 2021</p></div>
-            </div>
+            <div class="promo-card" data-promo="horizon"><div class="discount-badge">-20%</div><div class="game-cover"></div><div class="game-info"><h3 class="game-title">Horizon Forbidden West</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">18 février 2022</p></div></div>
+            <div class="promo-card" data-promo="zelda"><div class="discount-badge">-20%</div><div class="game-cover"></div><div class="game-info"><h3 class="game-title">The Legend of Zelda</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">12 mai 2023</p></div></div>
+            <div class="promo-card" data-promo="re"><div class="discount-badge">-20%</div><div class="game-cover"></div><div class="game-info"><h3 class="game-title">Resident Evil Requiem</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">24 mars 2023</p></div></div>
+            <div class="promo-card" data-promo="gt7"><div class="discount-badge">-20%</div><div class="game-cover"></div><div class="game-info"><h3 class="game-title">Gran Turismo 7</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">4 mars 2022</p></div></div>
+            <div class="promo-card" data-promo="baldurs"><div class="discount-badge">-20%</div><div class="game-cover"></div><div class="game-info"><h3 class="game-title">Baldur's Gate</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">3 août 2023</p></div></div>
+            <div class="promo-card" data-promo="gow"><div class="discount-badge">-20%</div><div class="game-cover"></div><div class="game-info"><h3 class="game-title">God Of Wars Ragnarok</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">9 novembre 2022</p></div></div>
+            <div class="promo-card" data-promo="starfield2"><div class="discount-badge">-20%</div><div class="game-cover"></div><div class="game-info"><h3 class="game-title">Starfield</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">6 septembre 2023</p></div></div>
+            <div class="promo-card" data-promo="forza"><div class="discount-badge">-20%</div><div class="game-cover"></div><div class="game-info"><h3 class="game-title">Forza Horizon 5</h3><p class="game-platforms">(PC, PS5, Xbox)</p><p class="game-date">9 novembre 2021</p></div></div>
         </div>
     </section>
 
@@ -228,38 +152,14 @@
         <div class="container">
             <h2 class="about-title">A Propos De Nous</h2>
             <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span>Qui sommes-nous ?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer"><p>Gaming.HUB est une plateforme de référence dédiée aux passionnés de jeux vidéo. Fondée en 2020, notre équipe d'experts sélectionne pour vous les meilleurs jeux. Nous nous engageons à vous offrir une expérience d'achat exceptionnelle avec des prix compétitifs et un service client réactif.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span>Que proposons-nous exactement ?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer"><p>Nous proposons une large gamme de produits gaming : jeux vidéo pour toutes les plateformes (PC, PlayStation, Xbox). Notre catalogue est mis à jour régulièrement avec les dernières sorties.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span>Pourquoi choisir notre site ?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer"><p>Choisir Gaming.HUB, c'est opter pour : des prix compétitifs avec des promotions régulières, une livraison rapide et sécurisée, un service client disponible 6j/7, des conseils d'experts gaming, un système de fidélité avantageux, et une garantie satisfait ou retourné de 7 jours.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span>Quels sont nos produits les plus populaires ?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer"><p>Nos best-sellers incluent : les jeux AAA comme Horizon Forbidden West, The Legend of Zelda, God of War Ragnarök. Consultez notre section "Promo" pour les offres du moment !</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span>Comment passer une commande ?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer"><p>Passer commande est très simple : 1) Créez un compte ou connectez-vous, 2) Parcourez notre catalogue et ajoutez les produits au panier, 3) Accédez à votre panier et cliquez sur "Commander", 4) Saisissez vos informations de livraison, 5) Choisissez votre mode de paiement, 6) Confirmez votre commande.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span>Quels sont les moyens de paiement disponibles ?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer"><p>Nous proposons plusieurs moyens de paiement sécurisés : paiement en ligne par carte bancaire, paiement via PayPal, paiement à la livraison (disponible selon votre localisation).</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span>Combien de temps prend la livraison ?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer"><p>Livraison standard : entre 5 et 7 jours ouvrables. Livraison express : entre 2 et 3 jours ouvrables. Les délais peuvent varier légèrement en fonction de votre localisation en Algérie.</p></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span>Puis-je retourner un produit ?</span><i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer"><p>Oui, vous pouvez retourner un produit sous certaines conditions. Nous proposons un échange dans un délai de 7 jours après réception de la commande. Pour toute demande, veuillez contacter notre service client.</p></div>
-                </div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Qui sommes-nous ?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Gaming.HUB est une plateforme de référence dédiée aux passionnés de jeux vidéo. Fondée en 2020, notre équipe d'experts sélectionne pour vous les meilleurs jeux.</p></div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Que proposons-nous exactement ?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Jeux vidéo pour toutes les plateformes (PC, PlayStation, Xbox). Notre catalogue est mis à jour régulièrement avec les dernières sorties.</p></div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Pourquoi choisir notre site ?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Des prix compétitifs, une livraison rapide, un service client disponible 6j/7 et une garantie satisfait ou retourné de 7 jours.</p></div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Quels sont nos produits les plus populaires ?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Horizon Forbidden West, The Legend of Zelda, God of War Ragnarök. Consultez notre section "Promo" !</p></div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Comment passer une commande ?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Créez un compte, ajoutez au panier, choisissez la livraison et confirmez. Email de confirmation immédiat.</p></div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Quels sont les moyens de paiement disponibles ?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Carte bancaire, PayPal, et paiement à la livraison selon votre localisation.</p></div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Combien de temps prend la livraison ?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Standard : 5-7 jours. Express : 2-3 jours ouvrables.</p></div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Puis-je retourner un produit ?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Échange possible dans un délai de 7 jours après réception.</p></div></div>
             </div>
         </div>
     </section>
@@ -317,7 +217,7 @@
                 </div>
                 <div class="footer-column newsletter-column">
                     <h3 class="footer-title">Newsletter</h3>
-                    <p class="newsletter-text">Inscrivez-vous pour recevoir nos offres exclusives et les dernières actualités gaming.</p>
+                    <p class="newsletter-text">Inscrivez-vous pour recevoir nos offres exclusives.</p>
                     <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
                         <div class="input-group">
                             <input type="email" placeholder="Votre adresse e-mail" required class="newsletter-input">

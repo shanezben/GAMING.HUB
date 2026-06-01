@@ -12,6 +12,51 @@
 
 <body>
 
+<!-- ════════════════════════════════════════════
+     ÉLÉMENTS MOBILE (à ajouter)
+     ════════════════════════════════════════════ -->
+<div class="mobile-topbar">
+    <div class="mob-logo">Gaming.HUB</div>
+    <div class="mob-icons">
+        <i class="fas fa-search" id="mob-search-toggle"></i>
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-bars" id="mob-menu-toggle"></i>
+    </div>
+</div>
+
+<div class="mobile-search-bar" id="mobileSearchBar">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="Rechercher un jeu...">
+</div>
+
+<div class="mob-menu-overlay" id="mobMenuOverlay"></div>
+<div class="mob-menu-drawer" id="mobMenuDrawer">
+    <div class="mob-menu-header">
+        <span class="mob-menu-logo">Gaming.HUB</span>
+        <i class="fas fa-times" id="mob-menu-close"></i>
+    </div>
+    <nav class="mob-menu-nav">
+        <a href="../index.html" class="mob-menu-link"><i class="fas fa-home"></i> Accueil</a>
+        <a href="./jeux.html" class="mob-menu-link"><i class="fas fa-gamepad"></i> Jeux</a>
+        <a href="./panier.html" class="mob-menu-link active"><i class="fas fa-shopping-bag"></i> Panier</a>
+        <div class="mob-menu-divider"></div>
+        <a href="./connexion.html" class="mob-menu-link"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+        <a href="./inscription.html" class="mob-menu-link mob-menu-link-highlight"><i class="fas fa-user-plus"></i> Inscription</a>
+    </nav>
+</div>
+
+<div class="mobile-bottom-bar">
+    <a href="../index.html" class="mob-tab-item"><i class="fas fa-home"></i><span>Accueil</span></a>
+    <a href="./jeux.html" class="mob-tab-item"><i class="fas fa-gamepad"></i><span>Jeux</span></a>
+    <a href="./panier.html" class="mob-tab-item active" style="position:relative">
+        <i class="fas fa-shopping-bag"></i><span>Panier</span>
+    </a>
+    <a href="./connexion.html" class="mob-tab-item"><i class="fas fa-user"></i><span>Profil</span></a>
+</div>
+<!-- ════════════════════════════════════════════
+     FIN ÉLÉMENTS MOBILE
+     ════════════════════════════════════════════ -->
+
 <!-- Logo -->
 <div class="logo-circle">
     <span>GAMING.HUB</span>
@@ -475,5 +520,47 @@
 
     <script src="../javascript/panier.js"></script>
     <script src="../javascript/zoom-fix.js"></script>
+    
+    <!-- Script pour les interactions mobiles -->
+    <script>
+        // Toggle search mobile
+        const searchToggle = document.getElementById('mob-search-toggle');
+        const mobileSearchBar = document.getElementById('mobileSearchBar');
+        if (searchToggle && mobileSearchBar) {
+            searchToggle.addEventListener('click', () => {
+                mobileSearchBar.classList.toggle('mob-search-visible');
+                if (mobileSearchBar.classList.contains('mob-search-visible')) {
+                    mobileSearchBar.querySelector('input').focus();
+                }
+            });
+        }
+
+        // Toggle menu mobile
+        const menuToggle = document.getElementById('mob-menu-toggle');
+        const menuClose = document.getElementById('mob-menu-close');
+        const drawer = document.getElementById('mobMenuDrawer');
+        const overlay = document.getElementById('mobMenuOverlay');
+
+        function openMenu() {
+            drawer.classList.add('open');
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            drawer.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggle) menuToggle.addEventListener('click', openMenu);
+        if (menuClose) menuClose.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('.mob-menu-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
 </body>
 </html>
