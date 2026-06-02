@@ -72,7 +72,7 @@ Le design a été réalisé sur Figma avant intégration HTML/CSS.
 📝 NOTES IMPORTANTES
 • Projet 100% front-end. Aucune base de données ni back-end n'est inclus.
 • Les produits, utilisateurs et panier sont gérés via JavaScript et localStorage.
-• Idéal pour un portfolio, un projet étudiant ou une démo client.
+
 • Pour une mise en production, il faudra connecter un back-end (Node.js, PHP, Firebase, etc.) et un vrai système de paiement (Stripe, PayPal API).
 
 👤 AUTEUR & CONTACT
