@@ -62,7 +62,7 @@ Gaming.HUB/
 2. Ouvrir le dossier dans un éditeur de code (VS Code recommandé)
 3. Lancer avec Live Server ou ouvrir directement `index.html` dans un navigateur
 4. Naviguer entre les pages, tester le panier, l'inscription et la recherche
-5. Déployer le site en ligne via Netlify :https://6a0c73d9fb202d67265fbec7--jocular-profiterole-7c748b.netlify.app
+5. Déployer le site en ligne via Netlify :https://gminghub.netlify.app
 
 🎨 DESIGN & FIGMA
 Le design a été réalisé sur Figma avant intégration HTML/CSS.
