@@ -1,75 +1,67 @@
 
-// DONNÉES DES PRODUITS
-
 const produits = [
-    // ===== HERO 1 : Baldur's Gate 3 (en haut) =====
+ 
     {
         id: 100,
         titre: "Baldur's Gate 3",
         categorie: "hero",
         image: "../images/clairObscurExpedition.jpg",
+        video: { type: "youtube", id: "7UIT8IGMQaw" },
         plateformes: "PC  Xbox  PlayStation 5",
-        description: "Avec Baldur's Gate 3, embarquez pour une aventure épique où tes décisions façonnent l'histoire, tes alliances changent le destin et chaque rencontre peut devenir légende... ou tragédie.\n\nEntre magie, mystères et combats stratégiques, ton destin n'est pas écrit - c'est à toi de le forger.",
-        note: "(4/5)",
-        isMainHero: true,
-        heroPosition: "top"
+        description: "Avec Baldur's Gate 3, embarquez pour une aventure épique où tes décisions façonnent l'histoire...",
+        note: "(4/5)", prix: 6999, genre: "RPG",
+        isMainHero: true, heroPosition: "top"
     },
-    // ===== HERO 2 : Clair Obscur (entre Survival et Exploration) =====
     {
         id: 101,
         titre: "Clair Obscur: Expedition 33",
         categorie: "hero",
         image: "../images/ClairObscurExpedition33.png",
+        video: { type: "youtube", id: "Or5_oQuEIqg" },
         plateformes: "PC  Xbox  PlayStation",
         tagline: "chaque pas te rapproche de la vérité... ou de l'oubli.",
         dateSortie: "24 avril 2025",
-        description: "Avec Clair Obscur: Expedition 33, plonge dans un monde où chaque année efface des vies et où une expédition devient le dernier espoir de l'humanité.\n\nEntre mystère, émotions et combats intenses.",
-        note: "(4.2/5)",
-        isMainHero: true,
-        heroPosition: "after-survival"
+        description: "Avec Clair Obscur: Expedition 33, plonge dans un monde où chaque année efface des vies...",
+        note: "(4.2/5)", prix: 6999, genre: "RPG",
+        isMainHero: true, heroPosition: "after-survival"
     },
-    // ===== HERO 3 : Resident Evil 6 (avant Sport) =====
     {
         id: 102,
         titre: "Resident Evil 6",
         categorie: "hero",
         image: "../images/Residentevil6.png",
+        video: { type: "youtube", id: "uq6ATVrcVIU" },
         plateformes: "PC  PS5  PlayStation 5",
         tagline: "la survie dépend de ton courage et de ton instinct.",
         dateSortie: "2 octobre 2012",
-        description: "Avec Resident Evil 6, plonge dans une course contre la montre où les menaces se multiplient à chaque coin de rue. Entre zombies, complots et créatures mutantes, chaque décision peut sauver... ou condamner.",
-        note: "(4.2/5)",
-        isMainHero: true,
-        heroPosition: "before-sport"
+        description: "Avec Resident Evil 6, plonge dans une course contre la montre où les menaces se multiplient...",
+        note: "(4.2/5)", prix: 6999, genre: "Horreur",
+        isMainHero: true, heroPosition: "before-sport"
     },
-    
     // ===== SURVIVAL =====
-    { id: 1, titre: "Alan Wake 2", categorie: "survival", image: "../images/AlaneWake2.png", dateSortie: "27 oct 2023", prix: 6999, genre: "Horreur" },
-    { id: 2, titre: "Dead Island 2", categorie: "survival", image: "../images/Deadisland2.png", dateSortie: "21 avr 2023", prix: 5999, genre: "Horreur" },
-    { id: 3, titre: "Resident Evil 4", categorie: "survival", image: "../images/Residentevil4.png", dateSortie: "24 mars 2023", prix: 5499, genre: "Horreur" },
-    { id: 4, titre: "Dredge", categorie: "survival", image: "../images/Dredge.png", dateSortie: "30 mars 2023", prix: 2499, genre: "Aventure" },
-    { id: 5, titre: "Callisto Protocol", categorie: "survival", image: "../images/Thecallistoprotocol.jpg", dateSortie: "2 déc 2022", prix: 4999, genre: "Horreur" },
-    
+    { id: 1, titre: "Alan Wake 2", categorie: "survival", image: "../images/AlaneWake2.png", video: { type: "youtube", id: "2i6H26XwazY" }, dateSortie: "27 oct 2023", prix: 6999, genre: "Horreur", description: "Incarnez Alan Wake et une agente du FBI dans une enquête sombre mêlant horreur psychologique et thriller narratif." },
+    { id: 2, titre: "Dead Island 2", categorie: "survival", image: "../images/Deadisland2.png", video: { type: "youtube", id: "AWFaj4IQ4ro" }, dateSortie: "21 avr 2023", prix: 6999, genre: "Horreur", description: "Plongez dans un Los Angeles infesté de zombies et survivez dans un monde ouvert sanglant et chaotique." },
+    { id: 3, titre: "Resident Evil 4", categorie: "survival", image: "../images/Residentevil4.png", video: { type: "youtube", id: "h92u9tq9ZjI" }, dateSortie: "24 mars 2023", prix: 6999, genre: "Horreur", description: "Rejoignez Leon S. Kennedy dans une mission de sauvetage terrifiante en Europe." },
+    { id: 4, titre: "Dredge", categorie: "survival", image: "../images/Dredge.png", video: { type: "youtube", id: "hF7RQtsTuno" }, dateSortie: "30 mars 2023", prix: 6999, genre: "Aventure", description: "Incarnez un pêcheur solitaire dans un monde sombre et mystérieux." },
+    { id: 5, titre: "Callisto Protocol", categorie: "survival", image: "../images/Thecallistoprotocol.jpg", video: { type: "youtube", id: "r7qqX1gVPW0" }, dateSortie: "2 déc 2022", prix: 6999, genre: "Horreur", description: "Survivre n'a jamais été aussi terrifiant dans cette prison de haute sécurité sur Callisto." },
     // ===== EXPLORATION =====
-    { id: 6, titre: "Sea of Stars", categorie: "exploration", image: "../images/JJ.jpg", dateSortie: "29 août 2023", prix: 3499, genre: "RPG" },
-    { id: 7, titre: "Horizon Forbidden West", categorie: "exploration", image: "../images/HorizonForbiddenWest.jpg", dateSortie: "18 fév 2022", prix: 6999, genre: "Aventure" },
-    { id: 8, titre: "The Legend of Zelda", categorie: "exploration", image: "../images/Zelda.jpg", dateSortie: "12 mai 2023", prix: 6999, genre: "Aventure" },
-    { id: 9, titre: "Starfield", categorie: "exploration", image: "../images/Startfield.jpg", dateSortie: "6 sept 2023", prix: 6999, genre: "RPG" },
-    { id: 10, titre: "Dave the Diver", categorie: "exploration", image: "../images/DaveTheDriver.png", dateSortie: "28 juin 2023", prix: 1999, genre: "Aventure" },
-    
+    { id: 6, titre: "Sea of Stars", categorie: "exploration", image: "../images/JJ.jpg", video: { type: "youtube", id: "zJ7quFNRCIQ" }, dateSortie: "29 août 2023", prix: 6999, genre: "RPG", description: "Plongez dans un RPG au tour par tour inspiré des classiques rétro." },
+    { id: 7, titre: "Horizon Forbidden West", categorie: "exploration", image: "../images/HorizonForbiddenWest.jpg", video: { type: "youtube", id: "Xk-xq6_Lr6E" }, dateSortie: "18 fév 2022", prix: 6999, genre: "Aventure", description: "Rejoignez Aloy dans une aventure épique à travers l'Ouest interdit." },
+    { id: 8, titre: "The Legend of Zelda", categorie: "exploration", image: "../images/Zelda.jpg", video: { type: "youtube", id: "vumJiWdxQSs" }, dateSortie: "12 mai 2023", prix: 6999, genre: "Aventure", description: "Tears of the Kingdom — Rejoignez Link dans une aventure extraordinaire à Hyrule." },
+    { id: 9, titre: "Starfield", categorie: "exploration", image: "../images/Startfield.jpg", video: { type: "youtube", id: "01tvuM7hew4" }, dateSortie: "6 sept 2023", prix: 6999, genre: "RPG", description: "Explorez une galaxie immense dans ce jeu de rôle spatial de Bethesda." },
+    { id: 10, titre: "Dave the Diver", categorie: "exploration", image: "../images/DaveTheDriver.png", video: { type: "youtube", id: "ghqQeKo2EAY" }, dateSortie: "28 juin 2023", prix: 6999, genre: "Aventure", description: "Incarnez Dave, un plongeur aventurier le jour et restaurateur la nuit." },
     // ===== SPORT =====
-    { id: 11, titre: "F1 23", categorie: "sport", image: "../images/F123.png", dateSortie: "16 juin 2023", prix: 5999, genre: "Course" },
-    { id: 12, titre: "Rocket League", categorie: "sport", image: "../images/RocketLeague.png", dateSortie: "23 sept 2020", prix: 0, genre: "Sport" },
-    { id: 13, titre: "NBA 2K23", categorie: "sport", image: "../images/NBA2K23.png", dateSortie: "9 sept 2022", prix: 5999, genre: "Sport" },
-    { id: 14, titre: "Gran Turismo 7", categorie: "sport", image: "../images/GranTurismo7.png", dateSortie: "4 mars 2022", prix: 6999, genre: "Course" },
-    { id: 15, titre: "FIFA 23", categorie: "sport", image: "../images/FIFA23.png", dateSortie: "30 sept 2022", prix: 5999, genre: "Sport" },
-    
+    { id: 11, titre: "F1 23", categorie: "sport", image: "../images/F123.png", video: { type: "youtube", id: "MrfSz2YbIp4" }, dateSortie: "16 juin 2023", prix: 6999, genre: "Course", description: "Prenez le contrôle des monoplaces les plus rapides du monde en Formule 1." },
+    { id: 12, titre: "Rocket League", categorie: "sport", image: "../images/RocketLeague.png", video: { type: "youtube", id: "uk_nOQM3qS0" }, dateSortie: "23 sept 2020", prix: 6999, genre: "Sport", description: "Mélange unique entre football et courses automobiles avec des voitures boostées." },
+    { id: 13, titre: "NBA 2K23", categorie: "sport", image: "../images/NBA2K23.png", video: { type: "youtube", id: "X-Iz36ZXyFI" }, dateSortie: "9 sept 2022", prix: 6999, genre: "Sport", description: "Vivez l'expérience du basketball professionnel avec des graphismes réalistes." },
+    { id: 14, titre: "Gran Turismo 7", categorie: "sport", image: "../images/GranTurismo7.png", video: { type: "youtube", id: "9tR6oOlnkw4" }, dateSortie: "4 mars 2022", prix: 6999, genre: "Course", description: "Prenez le volant des voitures les plus emblématiques du monde en simulation réaliste." },
+    { id: 15, titre: "FIFA 23", categorie: "sport", image: "../images/FIFA23.png", video: { type: "youtube", id: "YhfjMiYV98o" }, dateSortie: "30 sept 2022", prix: 6999, genre: "Sport", description: "Le jeu de football ultime de EA Sports avec les plus grands clubs et équipes." },
     // ===== POPULAIRE =====
-    { id: 16, titre: "GTA V", categorie: "populaire", image: "../images/GTA.png", dateSortie: "17 sept 2013", prix: 2999, genre: "Action" },
-    { id: 17, titre: "God of War Ragnarök", categorie: "populaire", image: "../images/GOW.png", dateSortie: "9 nov 2022", prix: 6999, genre: "Action" },
-    { id: 18, titre: "Forza Horizon 5", categorie: "populaire", image: "../images/ForzaHorizon5.png", dateSortie: "9 nov 2021", prix: 5999, genre: "Course" },
-    { id: 19, titre: "Red Dead Redemption 2", categorie: "populaire", image: "../images/Rectangle135.png", dateSortie: "26 oct 2018", prix: 3999, genre: "Aventure" },
-    { id: 20, titre: "Fortnite", categorie: "populaire", image: "../images/Fortnite.png", dateSortie: "26 sept 2017", prix: 0, genre: "Battle Royale" }
+    { id: 16, titre: "GTA V", categorie: "populaire", image: "../images/GTA.png", video: { type: "youtube", id: "0hNYgYXhWkM" }, dateSortie: "17 sept 2013", prix: 6999, genre: "Action", description: "Plongez dans Los Santos et suivez les histoires de Michael, Franklin et Trevor." },
+    { id: 17, titre: "God of War Ragnarök", categorie: "populaire", image: "../images/GOW.png", video: { type: "youtube", id: "0taDnGk3oK4" }, dateSortie: "9 nov 2022", prix: 6999, genre: "Action", description: "Suivez Kratos et Atreus dans une aventure mythologique nordique épique." },
+    { id: 18, titre: "Forza Horizon 5", categorie: "populaire", image: "../images/ForzaHorizon5.png", video: { type: "youtube", id: "Rv7xLt5yNsM" }, dateSortie: "9 nov 2021", prix: 6999, genre: "Course", description: "Explorez un monde ouvert immense inspiré du Mexique avec des centaines de voitures." },
+    { id: 19, titre: "Red Dead Redemption 2", categorie: "populaire", image: "../images/Rectangle135.png", video: { type: "youtube", id: "3R7-pDXQmOk" }, dateSortie: "26 oct 2018", prix: 6999, genre: "Aventure", description: "Plongez dans l'Ouest américain de 1899 et incarnez Arthur Morgan." },
+    { id: 20, titre: "Fortnite", categorie: "populaire", image: "../images/Fortnite.png", video: { type: "youtube", id: "M3Tch9r7zOU" }, dateSortie: "26 sept 2017", prix: 6999, genre: "Battle Royale", description: "Le battle royale gratuit de Epic Games avec construction et modes variés." }
 ];
 
 const categories = [
@@ -83,8 +75,6 @@ const categories = [
 let filtreActuel = "all";
 
 
-// INITIALISATION
-
 document.addEventListener('DOMContentLoaded', () => {
     afficherContenu(filtreActuel);
     
@@ -92,121 +82,193 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const terme = e.target.value.toLowerCase().trim();
-            if (terme === '') {
-                afficherContenu(filtreActuel);
-            } else {
-                rechercher(terme);
-            }
+            if (terme === '') afficherContenu(filtreActuel);
+            else rechercher(terme);
         });
     }
     
-
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     updateCartCounterFromJeux(cart.reduce((sum, item) => sum + (item.quantity || 1), 0));
+    
+    setupModalEvents();
 });
 
 
-// GÉNÉRER LES FILTRES
 
-function genererFiltres() {
-    const container = document.getElementById('filtersContainer');
-    if (!container) return;
-    container.innerHTML = '';
+function setupModalEvents() {
+    const modalClose = document.getElementById('modalClose');
+    const modalOverlay = document.getElementById('gameModal');
     
-    categories.forEach(cat => {
-        const btn = document.createElement('button');
-        btn.className = `filter-btn ${cat.key === filtreActuel ? 'active' : ''}`;
-        btn.textContent = cat.label;
-        btn.onclick = () => afficherContenu(cat.key);
-        container.appendChild(btn);
+    modalClose?.addEventListener('click', closeModal);
+    
+    modalOverlay?.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) closeModal();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+    
+  
+    const observer = new MutationObserver(() => {
+        const modal = document.getElementById('gameModal');
+        if (!modal && document.body.classList.contains('modal-open')) {
+            document.body.classList.remove('modal-open');
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
+function closeModal() {
+    const modal = document.getElementById('gameModal');
+    if (!modal) return;
+    
+  
+    const iframe = modal.querySelector('iframe');
+    if (iframe) {
+        if (iframe.src.includes('youtube')) {
+            try {
+                iframe.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            } catch(e) { /* ignore cross-origin */ }
+        }
+        iframe.src = '';
+    }
+    
+   
+    const modalVideo = document.getElementById('modalGameVideo');
+    if (modalVideo) modalVideo.innerHTML = '';
+    
+
+    modal.classList.remove('active');
+    
+   
+    document.body.classList.remove('modal-open');
+    
+  
+    setTimeout(() => {
+        if (!modal.classList.contains('active')) {
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+        }
+    }, 100);
+}
+
+function openGameModal(gameId) {
+    const jeu = produits.find(p => p.id === gameId);
+    if (!jeu) return;
+    
+    const modal = document.getElementById('gameModal');
+    if (!modal) return;
+    
+    const modalVideo = document.getElementById('modalGameVideo');
+    const modalTitle = document.getElementById('modalGameTitle');
+    const modalDesc = document.getElementById('modalGameDescription');
+    const modalPlatforms = document.getElementById('modalGamePlatforms');
+    const modalPrice = document.getElementById('modalGamePrice');
+    const modalAddBtn = document.getElementById('modalAddToCart');
+    
+   
+    if (modalVideo) modalVideo.innerHTML = '';
+    
+    // Charger vidéo avec poster
+    if (jeu.video) {
+        loadVideoInModal(jeu.video, jeu.image, modalVideo);
+    }
+    
+  
+    modalTitle.textContent = jeu.titre;
+    modalDesc.textContent = jeu.description || '';
+    modalPlatforms.textContent = jeu.plateformes || 'PC • PS5 • Xbox';
+    
+   
+    modalPrice.textContent = jeu.prix ? `${jeu.prix} DA` : 'Gratuit';
+    
+    // Bouton panier
+    modalAddBtn.onclick = () => {
+        addToCartFromJeux(jeu.id, jeu.titre, jeu.image, jeu.prix || 6999, jeu.genre || 'Action');
+        closeModal();
+    };
+    
+    // Afficher modale + bloquer scroll
+    modal.classList.add('active');
+    document.body.classList.add('modal-open');
+}
+
+
+
+function loadVideoInModal(videoData, posterImage, container) {
+    container.innerHTML = '';
+    const videoContainer = document.createElement('div');
+    videoContainer.className = 'modal-video-container';
+    
+    const poster = document.createElement('div');
+    poster.className = 'modal-video-poster';
+    poster.style.backgroundImage = `url('${posterImage}')`;
+    
+    const posterOverlay = document.createElement('div');
+    posterOverlay.className = 'modal-video-poster-overlay';
+    
+    const playButton = document.createElement('button');
+    playButton.className = 'modal-video-play-btn';
+    playButton.innerHTML = '<i class="fas fa-play"></i>';
+    playButton.setAttribute('aria-label', 'Lancer la vidéo');
+    
+    const spinner = document.createElement('div');
+    spinner.className = 'modal-video-loading hidden';
+    spinner.innerHTML = '<div class="spinner"></div>';
+    
+    const iframe = document.createElement('iframe');
+    iframe.className = 'modal-video-iframe';
+    iframe.style.display = 'none';
+    iframe.loading = 'lazy';
+    
+    let iframeSrc = '';
+    if (videoData.type === 'youtube') {
+        iframeSrc = `https://www.youtube-nocookie.com/embed/${videoData.id}?controls=1&rel=0&modestbranding=1&iv_load_policy=3&fs=1&playsinline=1`;
+    } else if (videoData.type === 'vimeo') {
+        iframeSrc = `https://player.vimeo.com/video/${videoData.id}?byline=0&title=0&portrait=0`;
+    }
+    
+    poster.appendChild(posterOverlay);
+    poster.appendChild(playButton);
+    videoContainer.appendChild(poster);
+    videoContainer.appendChild(spinner);
+    videoContainer.appendChild(iframe);
+    container.appendChild(videoContainer);
+    
+    playButton.addEventListener('click', () => {
+        spinner.classList.remove('hidden');
+        playButton.style.display = 'none';
+        posterOverlay.style.display = 'none';
+        
+        iframe.src = iframeSrc;
+        iframe.style.display = 'block';
+        
+        if (!iframe.src.includes('autoplay=1')) {
+            iframe.src = iframe.src.includes('?') 
+                ? iframe.src + '&autoplay=1&mute=0'
+                : iframe.src + '?autoplay=1&mute=0';
+        }
+        
+        iframe.addEventListener('load', () => {
+            spinner.classList.add('hidden');
+        }, { once: true });
+    });
+    
+    iframe.addEventListener('error', () => {
+        spinner.innerHTML = '<i class="fas fa-exclamation-triangle" style="font-size:2rem;color:#ff6b35;"></i><p style="color:#fff;margin-top:10px;">Vidéo indisponible</p>';
+        console.warn(`Vidéo non chargée: ${videoData.id}`);
     });
 }
 
 
-// CRÉER UNE SECTION HERO
-
-function creerHeroSection(jeu) {
-    const heroSection = document.createElement('div');
-    heroSection.className = 'hero-section';
-    heroSection.style.backgroundImage = `url('${jeu.image}')`;
-    
-    const taglineHTML = jeu.tagline 
-        ? `<p class="hero-tagline">${jeu.tagline} <span style="color:#4ade80; margin-left:8px;">${jeu.dateSortie}</span></p>` 
-        : '';
-    
-   
-    heroSection.innerHTML = `
-        <div class="hero-overlay"></div>
-        <div class="hero-content" onclick="window.location.href='./voirplusdejeux.html?id=${jeu.id}'" style="cursor:pointer">
-            <div class="hero-info" onclick="event.stopPropagation()">
-                <h1 class="hero-title">${jeu.titre}</h1>
-                ${taglineHTML}
-                <div class="hero-platforms">${jeu.plateformes}</div>
-                <p class="hero-description">${jeu.description.replace(/\n/g, '<br>')}</p>
-                <div class="hero-rating">
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i>
-                    </div>
-                    <span class="rating-text">${jeu.note}</span>
-                </div>
-                <div class="hero-actions" onclick="event.stopPropagation()">
-                    <button class="btn-panier" onclick="addToCartFromJeux(${jeu.id}, '${jeu.titre.replace(/'/g, "\\'")}', '${jeu.image}', ${jeu.prix || 7500}, '${jeu.genre || 'Action'}'); createRipple(event)">
-                        <i class="fas fa-shopping-cart"></i> Ajouter au panier
-                    </button>
-                    <button class="btn-plus" onclick="event.stopPropagation(); window.location.href='./voirplusdejeux.html?id=${jeu.id}'; createRipple(event)">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-    return heroSection;
-}
-
-
-// CRÉER UNE SECTION DE JEUX
-
-function creerSectionJeux(titre, jeux) {
-    const section = document.createElement('div');
-    section.className = 'game-section';
-    
-  
-    const cardsHTML = jeux.map(jeu => `
-        <div class="card" onclick="window.location.href='./voirplusdejeux.html?id=${jeu.id}'" style="cursor:pointer">
-            <div class="card-image" 
-                 style="background-image: url('${jeu.image}');"
-                 onerror="this.style.background='linear-gradient(135deg, #111, #222)'; this.innerHTML='<span style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#555;font-size:12px\\'>📷 Image indisponible</span>'">
-            </div>
-            <div class="card-info">
-                <h3 class="card-title">${jeu.titre}</h3>
-                <div class="card-meta">
-                    <span>(PC, PS5, Xbox)</span>
-                    <span>${jeu.dateSortie}</span>
-                </div>
-                <button class="btn-add-cart-small" onclick="event.stopPropagation(); addToCartFromJeux(${jeu.id}, '${jeu.titre.replace(/'/g, "\\'")}', '${jeu.image}', ${jeu.prix || 7500}, '${jeu.genre || 'Action'}'); createRipple(event)">
-                    <i class="fas fa-cart-plus"></i>
-                    <span>Ajouter</span>
-                </button>
-            </div>
-        </div>
-    `).join('');
-
-    section.innerHTML = `
-        <div class="section-header">
-            <h2 class="section-title">${titre}</h2>
-            <a href="#" class="view-all">Tout voir <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-        <div class="cards-container">
-            ${cardsHTML}
-        </div>
-    `;
-    return section;
-}
-
-
-// AFFICHER LE CONTENU
-
 function afficherContenu(categorie) {
+    const modal = document.getElementById('gameModal');
+    if (modal?.classList.contains('active')) {
+        closeModal();
+    }
+    
     filtreActuel = categorie;
     const main = document.getElementById('mainContent');
     if (!main) return;
@@ -269,31 +331,111 @@ function afficherContenu(categorie) {
     }
 }
 
-
-// RECHERCHE
+function genererFiltres() {
+    const container = document.getElementById('filtersContainer');
+    if (!container) return;
+    container.innerHTML = '';
+    
+    categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = `filter-btn ${cat.key === filtreActuel ? 'active' : ''}`;
+        btn.textContent = cat.label;
+        btn.onclick = () => afficherContenu(cat.key);
+        container.appendChild(btn);
+    });
+}
 
 function rechercher(terme) {
     const gamesContainer = document.querySelector('.games-container');
     if (!gamesContainer) return;
     
+    const modal = document.getElementById('gameModal');
+    if (modal?.classList.contains('active')) closeModal();
+    
     gamesContainer.innerHTML = '';
-
-    const resultats = produits.filter(p => 
-        p.titre.toLowerCase().includes(terme) && !p.isMainHero
-    );
+    const resultats = produits.filter(p => p.titre.toLowerCase().includes(terme) && !p.isMainHero);
 
     if (resultats.length === 0) {
         gamesContainer.innerHTML = '<p style="color:#666; padding:20px; text-align:center;">Aucun jeu trouvé pour "' + terme + '"</p>';
         return;
     }
-
-    const section = creerSectionJeux(`Résultats`, resultats);
-    gamesContainer.appendChild(section);
+    gamesContainer.appendChild(creerSectionJeux(`Résultats`, resultats));
 }
 
 
-//  FONCTIONS PANIER
 
+function creerHeroSection(jeu) {
+    const heroSection = document.createElement('div');
+    heroSection.className = 'hero-section';
+    heroSection.style.backgroundImage = `url('${jeu.image}')`;
+    
+    const taglineHTML = jeu.tagline 
+        ? `<p class="hero-tagline">${jeu.tagline} <span style="color:#4ade80; margin-left:8px;">${jeu.dateSortie}</span></p>` 
+        : '';
+    
+    heroSection.innerHTML = `
+        <div class="hero-overlay"></div>
+        <div class="hero-content" style="cursor:pointer" onclick="openGameModal(${jeu.id})">
+            <div class="hero-info" onclick="event.stopPropagation()">
+                <h1 class="hero-title">${jeu.titre}</h1>
+                ${taglineHTML}
+                <div class="hero-platforms">${jeu.plateformes}</div>
+                <p class="hero-description">${jeu.description.replace(/\n/g, '<br>')}</p>
+                <div class="hero-rating">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i>
+                    </div>
+                    <span class="rating-text">${jeu.note}</span>
+                </div>
+                <div class="hero-actions" onclick="event.stopPropagation()">
+                    <button class="btn-panier" onclick="addToCartFromJeux(${jeu.id}, '${jeu.titre.replace(/'/g, "\\'")}', '${jeu.image}', ${jeu.prix || 6999}, '${jeu.genre || 'Action'}'); createRipple(event)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                    </button>
+                    <button class="btn-plus" onclick="event.stopPropagation(); openGameModal(${jeu.id}); createRipple(event)">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    return heroSection;
+}
+
+function creerSectionJeux(titre, jeux) {
+    const section = document.createElement('div');
+    section.className = 'game-section';
+    
+    const cardsHTML = jeux.map(jeu => `
+        <div class="card" style="cursor:pointer" onclick="openGameModal(${jeu.id})">
+            <div class="card-image" 
+                 style="background-image: url('${jeu.image}');"
+                 onerror="this.style.background='linear-gradient(135deg, #111, #222)'; this.innerHTML='<span style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#555;font-size:12px\\'>📷 Image indisponible</span>'">
+            </div>
+            <div class="card-info">
+                <h3 class="card-title">${jeu.titre}</h3>
+                <div class="card-meta">
+                    <span>(PC, PS5, Xbox)</span>
+                    <span>${jeu.dateSortie}</span>
+                </div>
+                <button class="btn-add-cart-small" onclick="event.stopPropagation(); addToCartFromJeux(${jeu.id}, '${jeu.titre.replace(/'/g, "\\'")}', '${jeu.image}', ${jeu.prix || 6999}, '${jeu.genre || 'Action'}'); createRipple(event)">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>Ajouter</span>
+                </button>
+            </div>
+        </div>
+    `).join('');
+
+    section.innerHTML = `
+        <div class="section-header">
+            <h2 class="section-title">${titre}</h2>
+            <a href="#" class="view-all">Tout voir <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="cards-container">
+            ${cardsHTML}
+        </div>
+    `;
+    return section;
+}
 
 
 function addToCartFromJeux(id, titre, image, prix, genre) {
@@ -305,13 +447,8 @@ function addToCartFromJeux(id, titre, image, prix, genre) {
         showToastPanier(`+1 ${titre} dans le panier`, 'info');
     } else {
         cart.push({
-            id: id,
-            name: titre,
-            genre: genre,
-            platform: 'PC/PS5/Xbox',
-            price: prix,
-            image: image,
-            quantity: 1
+            id: id, name: titre, genre: genre, platform: 'PC/PS5/Xbox',
+            price: prix, image: image, quantity: 1
         });
         showToastPanier(`${titre} ajouté au panier ✓`, 'success');
     }
@@ -320,47 +457,22 @@ function addToCartFromJeux(id, titre, image, prix, genre) {
     updateCartCounterFromJeux(cart.reduce((sum, item) => sum + (item.quantity || 1), 0));
 }
 
-// Afficher notification toast
 function showToastPanier(message, type = 'success') {
     let toast = document.getElementById('toast-jeux');
     if (!toast) {
         toast = document.createElement('div');
         toast.id = 'toast-jeux';
         toast.className = 'toast-jeux';
-        toast.style.cssText = `
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #111;
-            border: 1px solid ${type === 'success' ? '#4ade80' : '#ff4444'};
-            padding: 15px 25px;
-            border-radius: 10px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            z-index: 9999;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s;
-            font-family: 'Jaini Purva', cursive;
-            pointer-events: none;
-        `;
+        toast.style.cssText = `position:fixed;bottom:30px;right:30px;background:#111;border:1px solid ${type==='success'?'#4ade80':'#ff4444'};padding:15px 25px;border-radius:10px;color:#fff;display:flex;align-items:center;gap:10px;box-shadow:0 5px 20px rgba(0,0,0,0.5);z-index:9999;opacity:0;transform:translateY(20px);transition:all 0.3s;font-family:'Jaini Purva',cursive;pointer-events:none;`;
         document.body.appendChild(toast);
     }
     
-    toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}" style="color:${type === 'success' ? '#4ade80' : '#ff4444'}"></i><span>${message}</span>`;
-    toast.style.opacity = '1';
-    toast.style.transform = 'translateY(0)';
+    toast.innerHTML = `<i class="fas ${type==='success'?'fa-check-circle':'fa-exclamation-circle'}" style="color:${type==='success'?'#4ade80':'#ff4444'}"></i><span>${message}</span>`;
+    toast.style.opacity = '1'; toast.style.transform = 'translateY(0)';
     
-    setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(20px)';
-    }, 3000);
+    setTimeout(() => { toast.style.opacity = '0'; toast.style.transform = 'translateY(20px)'; }, 3000);
 }
 
-//  Mettre à jour le badge du panier dans la navbar
 function updateCartCounterFromJeux(totalItems) {
     const cartIcon = document.querySelector('.cart-icon');
     if (!cartIcon) return;
@@ -369,22 +481,7 @@ function updateCartCounterFromJeux(totalItems) {
     if (!badge) {
         badge = document.createElement('span');
         badge.className = 'cart-count';
-        badge.style.cssText = `
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #ff6b00;
-            color: white;
-            font-size: 11px;
-            font-weight: bold;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 0.3s ease;
-        `;
+        badge.style.cssText = `position:absolute;top:-8px;right:-8px;background:#ff6b00;color:white;font-size:11px;font-weight:bold;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:pulse 0.3s ease;`;
         cartIcon.style.position = 'relative';
         cartIcon.appendChild(badge);
     }
@@ -392,36 +489,23 @@ function updateCartCounterFromJeux(totalItems) {
     badge.style.display = totalItems > 0 ? 'flex' : 'none';
 }
 
-// Animation pour le badge
 if (!document.getElementById('pulse-style')) {
     const style = document.createElement('style');
     style.id = 'pulse-style';
-    style.textContent = `
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
-        }
-    `;
+    style.textContent = `@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}`;
     document.head.appendChild(style);
 }
 
-//  Effet de vague au clic sur les boutons
 function createRipple(event) {
     const button = event.currentTarget;
     const ripple = document.createElement('span');
     ripple.className = 'ripple';
-    
     const rect = button.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
     const x = event.clientX - rect.left - size / 2;
     const y = event.clientY - rect.top - size / 2;
-    
     ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
-    
+    ripple.style.left = `${x}px`; ripple.style.top = `${y}px`;
     button.appendChild(ripple);
-    
     setTimeout(() => ripple.remove(), 600);
 }

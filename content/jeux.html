@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaming.HUB - Nos Jeux</title>
+    
+
     <link rel="stylesheet" href="../style/jeux.css">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jaini+Purva&family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jaini+Purva&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- ── MOBILE TOPBAR ── -->
+    <!-- ════════════════════════════════════════════
+         ÉLÉMENTS MOBILE
+         ════════════════════════════════════════════ -->
     <div class="mobile-topbar">
         <div class="mob-logo">Gaming.HUB</div>
         <div class="mob-icons">
@@ -21,13 +25,11 @@
         </div>
     </div>
 
-    <!-- ── MOBILE SEARCH BAR ── -->
     <div class="mobile-search-bar" id="mobileSearchBar">
         <i class="fas fa-search"></i>
         <input type="text" id="searchInputMobile" placeholder="Rechercher un jeu...">
     </div>
 
-    <!-- ── MOBILE MENU DRAWER ── -->
     <div class="mob-menu-overlay" id="mobMenuOverlay"></div>
     <div class="mob-menu-drawer" id="mobMenuDrawer">
         <div class="mob-menu-header">
@@ -35,26 +37,15 @@
             <i class="fas fa-times" id="mob-menu-close"></i>
         </div>
         <nav class="mob-menu-nav">
-            <a href="../index.html" class="mob-menu-link">
-                <i class="fas fa-home"></i> Accueil
-            </a>
-            <a href="jeux.html" class="mob-menu-link active">
-                <i class="fas fa-gamepad"></i> Jeux
-            </a>
-            <a href="panier.html" class="mob-menu-link">
-                <i class="fas fa-shopping-bag"></i> Panier
-            </a>
+            <a href="../index.html" class="mob-menu-link"><i class="fas fa-home"></i> Accueil</a>
+            <a href="jeux.html" class="mob-menu-link active"><i class="fas fa-gamepad"></i> Jeux</a>
+            <a href="panier.html" class="mob-menu-link"><i class="fas fa-shopping-bag"></i> Panier</a>
             <div class="mob-menu-divider"></div>
-            <a href="connexion.html" class="mob-menu-link">
-                <i class="fas fa-sign-in-alt"></i> Connexion
-            </a>
-            <a href="inscription.html" class="mob-menu-link mob-menu-link-highlight">
-                <i class="fas fa-user-plus"></i> Inscription
-            </a>
+            <a href="connexion.html" class="mob-menu-link"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+            <a href="inscription.html" class="mob-menu-link mob-menu-link-highlight"><i class="fas fa-user-plus"></i> Inscription</a>
         </nav>
     </div>
 
-    <!-- ── MOBILE BOTTOM BAR ── -->
     <div class="mobile-bottom-bar">
         <a href="../index.html" class="mob-tab-item">
             <i class="fas fa-home"></i>
@@ -75,7 +66,7 @@
         </a>
     </div>
 
-    <!-- ── DESKTOP ── -->
+   
     <div class="logo-circle">
         <span>GAMING.HUB</span>
     </div>
@@ -99,15 +90,48 @@
         </nav>
     </header>
 
-    <div class="hero-bg" id="hero-bg"></div>
-    <div class="hero-overlay"></div>
-
+  
     <main class="page" style="overflow: visible;">
         <div class="game-detail" id="mainContent"></div>
     </main>
 
-    <div class="toast" id="toast"></div>
+  
+    <div class="modal-overlay" id="gameModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body">
+                <div class="modal-video-container" id="modalGameVideo">
+                   
+                </div>
+                <div class="modal-info">
+                    <h2 class="modal-title" id="modalGameTitle"></h2>
+                    <p class="modal-description" id="modalGameDescription"></p>
+                    <div class="modal-meta">
+                        <div class="modal-platforms">
+                            <i class="fas fa-gamepad"></i>
+                            <span id="modalGamePlatforms"></span>
+                        </div>
+                        <div class="modal-price">
+                            <span class="price-final" id="modalGamePrice"></span>
+                        </div>
+                    </div>
+                    <button class="btn-add-to-cart-modal" id="modalAddToCart">
+                        <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast-jeux">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- ════════════════════════════════════════════
+         FOOTER
+         ════════════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -166,10 +190,12 @@
         </div>
     </footer>
 
+   
     <script src="../javascript/jeux.js"></script>
     <script src="../javascript/panier.js"></script>
-
+    
     <script>
+    
         const mobSearch = document.getElementById('searchInputMobile');
         const deskSearch = document.getElementById('searchInput');
         if (mobSearch && deskSearch) {
@@ -179,21 +205,23 @@
             });
         }
 
+       
         const searchToggle = document.getElementById('mob-search-toggle');
-        const mobileSearchBar = document.getElementById('mobileSearchBar');
-        if (searchToggle && mobileSearchBar) {
+        const mobileSearchBarEl = document.getElementById('mobileSearchBar');
+        if (searchToggle && mobileSearchBarEl) {
             searchToggle.addEventListener('click', () => {
-                mobileSearchBar.classList.toggle('mob-search-visible');
-                if (mobileSearchBar.classList.contains('mob-search-visible')) {
+                mobileSearchBarEl.classList.toggle('mob-search-visible');
+                if (mobileSearchBarEl.classList.contains('mob-search-visible')) {
                     document.getElementById('searchInputMobile').focus();
                 }
             });
         }
 
+        // Toggle menu mobile
         const menuToggle = document.getElementById('mob-menu-toggle');
-        const menuClose  = document.getElementById('mob-menu-close');
-        const drawer     = document.getElementById('mobMenuDrawer');
-        const overlay    = document.getElementById('mobMenuOverlay');
+        const menuClose = document.getElementById('mob-menu-close');
+        const drawer = document.getElementById('mobMenuDrawer');
+        const overlay = document.getElementById('mobMenuOverlay');
 
         function openMenu() {
             drawer.classList.add('open');
@@ -208,8 +236,13 @@
         }
 
         if (menuToggle) menuToggle.addEventListener('click', openMenu);
-        if (menuClose)  menuClose.addEventListener('click', closeMenu);
-        if (overlay)    overlay.addEventListener('click', closeMenu);
+        if (menuClose) menuClose.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        
+      
+        document.querySelectorAll('.mob-menu-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
     </script>
 </body>
 </html>
